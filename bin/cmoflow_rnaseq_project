@@ -146,9 +146,9 @@ def run_suppa(samplefile, conditionname, AS_type, suppa_method = "empirical", ar
         cmd_list.append(psiPerEvent_cmd)
 
 #    for isuppa_method in suppa_method:
-        outputfile = workdir + "/suppa." + AS_type
-        if suppa_method == "classical":
-            outputfile = outputfile + "." + suppa_method
+    outputfile = workdir + "/suppa." + AS_type
+    if suppa_method == "classical":
+        outputfile = outputfile + "." + suppa_method
         diffSplice_cmd = " ".join([
                 cmo.util.programs["python"]["3.5.1"],
                 cmo.util.programs["suppa"]["default"],
