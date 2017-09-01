@@ -27,7 +27,6 @@ class Picard:
                 "MAX_RECORDS_IN_RAM": "5000000",
                 "CREATE_INDEX": "true",
                 "CREATE_MD5_FILE": "false",
-                "REFERENCE_SEQUENCE": "null",
            #     "GA4GH_CLIENT_SECRETS":"null",
                 }
         
@@ -38,8 +37,14 @@ class Picard:
             cmd = [self.java_cmd, self.java_args, "-jar", os.path.join(self.picard_jar, command+".jar")]
         else:
             cmd = [self.java_cmd, self.java_args, "-jar", self.picard_jar, command]
-        
+        #overwrite default args with whatever was passed in
+        for arg, value in default_args_override.items():
+            if arg in self.default_args:
+                self.default_args[arg] = value        
+        #add combination of pass-ins and defaults to command 
         for arg, value in self.default_args.items():
+            if arg in default_args_override:
+                value = default_args_override[arg]
             if arg not in command_specific_args:
                 if value==True:
                     cmd = cmd + [arg + "="+ str(value)]
