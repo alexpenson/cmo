@@ -149,23 +149,24 @@ def run_suppa(samplefile, conditionname, AS_type, suppa_method = "empirical", ar
     outputfile = workdir + "/suppa." + AS_type
     if suppa_method == "classical":
         outputfile = outputfile + "." + suppa_method
-        diffSplice_cmd = " ".join([
-                cmo.util.programs["python"]["3.5.1"],
-                cmo.util.programs["suppa"]["default"],
-                "diffSplice",
-                "--method", suppa_method,
-                "--ioe", ioefile,
-                "--psi",
-                workdir + "/" + conditions[0] + "." + AS_type + ".psi",
-                workdir + "/" + conditions[1] + "." + AS_type + ".psi",
-                "--expression-file",
-                workdir + "/" + conditions[0] + ".tpm",
-                workdir + "/" + conditions[1] + ".tpm",
-                "--area", str(area),
-                "--lower-bound", str(lower_bound),
-                "-gc", ## account for multiple hypothesis testing
-                "-o", outputfile])
-        cmd_list.append(diffSplice_cmd)
+
+    diffSplice_cmd = " ".join([
+            cmo.util.programs["python"]["3.5.1"],
+            cmo.util.programs["suppa"]["default"],
+            "diffSplice",
+            "--method", suppa_method,
+            "--ioe", ioefile,
+            "--psi",
+            workdir + "/" + conditions[0] + "." + AS_type + ".psi",
+            workdir + "/" + conditions[1] + "." + AS_type + ".psi",
+            "--expression-file",
+            workdir + "/" + conditions[0] + ".tpm",
+            workdir + "/" + conditions[1] + ".tpm",
+            "--area", str(area),
+            "--lower-bound", str(lower_bound),
+            "-gc", ## account for multiple hypothesis testing
+            "-o", outputfile])
+    cmd_list.append(diffSplice_cmd)
     
     return workflow.Job(" && ".join(cmd_list),
                         resources="rusage[mem=30]",
