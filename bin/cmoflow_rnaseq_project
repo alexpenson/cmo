@@ -7,7 +7,7 @@ from distutils.version import StrictVersion
 def run_DESeq2(samplefile, conditionname):
     samplefile = os.path.abspath(samplefile)
 
-    DESeq2_cmd = [cmo.util.programs["R"]["3.2.2-dev"] + "Rscript",
+    DESeq2_cmd = [cmo.util.programs["R"]["3.5.0-dev"] + "Rscript",
                   "-e", "'rnaseq.scripts::run_DESeq2()'",
                   "-s", samplefile, ## --samplefile doesn't work??
                   "--conditionname", conditionname,
@@ -19,7 +19,7 @@ def run_DESeq2(samplefile, conditionname):
 def run_sleuth(samplefile, conditionname, subdir, processors = 1):
     samplefile = os.path.abspath(samplefile)
 
-    sleuth_cmd = [cmo.util.programs["R"]["3.2.2-dev"] + "Rscript",
+    sleuth_cmd = [cmo.util.programs["R"]["3.5.0-dev"] + "Rscript",
                   "--default-packages=ggplot2,methods,stats,utils", ## DESCRIPTION file Depends doens't work...
                   "-e", "'options(mc.cores = " + str(processors) + "L); rnaseq.scripts::run_sleuth()'",
                   "-s", samplefile, ## --samplefile doesn't work??
@@ -33,7 +33,7 @@ def run_sleuth(samplefile, conditionname, subdir, processors = 1):
 def run_miso_combine(samplefile, conditionname):
     samplefile = os.path.abspath(samplefile)
     
-    miso_combine_cmd = [cmo.util.programs["R"]["3.2.2-dev"] + "Rscript",
+    miso_combine_cmd = [cmo.util.programs["R"]["3.5.0-dev"] + "Rscript",
                         "--default-packages=ggplot2,methods,stats,utils", ## DESCRIPTION file Depends doens't work...
                         "-e", "'rnaseq.scripts::miso_combine()'",
                         "-s", samplefile, ## --samplefile doesn't work??
@@ -48,7 +48,7 @@ def QoRT_merge_all_junctions(samplefile, conditionname, minCount = 6):
 
     workdir = samplefile + "_" + conditionname + "/JunctionSeq"
     decoder_filename = workdir + "/decoder.txt"
-    merge_all_cmd = [cmo.util.programs["R"]["3.2.2-dev"] + "Rscript",
+    merge_all_cmd = [cmo.util.programs["R"]["3.5.0-dev"] + "Rscript",
                      " -e", "'rnaseq.scripts::write.decoder()'", 
                      "-s", samplefile,
                      "-c", conditionname,
@@ -74,7 +74,7 @@ def QoRT_merge_excl_novel_junctions(inputdir):
 
 def run_JunctionSeq(samplefile, conditionname, processors = 10):
     samplefile = os.path.abspath(samplefile)
-    JunctionSeq_cmd = [cmo.util.programs["R"]["3.2.2-dev"] + "Rscript",
+    JunctionSeq_cmd = [cmo.util.programs["R"]["3.5.0-dev"] + "Rscript",
                        "-e", "'rnaseq.scripts::run_JunctionSeq()'",
                        "-s", samplefile,
                        "-c", conditionname,
@@ -89,7 +89,7 @@ def run_JunctionSeq(samplefile, conditionname, processors = 10):
 def run_make_suppa_files(samplefile, conditionname, suppa_tpm_file):
     samplefile = os.path.abspath(samplefile)
     make_suppa_files_cmd = [
-        cmo.util.programs["R"]["3.2.2-dev"] + "Rscript",
+        cmo.util.programs["R"]["3.5.0-dev"] + "Rscript",
         "-e", "'rnaseq.scripts::make_suppa_files()'",
         "-s", samplefile,
         "-c", conditionname,
@@ -169,13 +169,13 @@ def run_suppa(samplefile, conditionname, AS_type, suppa_method = "empirical", ar
     cmd_list.append(diffSplice_cmd)
     
     return workflow.Job(" && ".join(cmd_list),
-                        resources="rusage[mem=30]",
+                        resources="rusage[mem=80]",
                         name="Run SUPPA " + AS_type)
 
 def run_filter_suppa_results(samplefile, conditionname):
     samplefile = os.path.abspath(samplefile)
     filter_suppa_results_cmd = [
-        cmo.util.programs["R"]["3.2.2-dev"] + "Rscript",
+        cmo.util.programs["R"]["3.5.0-dev"] + "Rscript",
         "--default-packages=ggplot2,methods,stats,utils", ## DESCRIPTION file Depends doens't work...
         "-e", "'rnaseq.scripts::filter_suppa_results()'",
         "-s", samplefile,
