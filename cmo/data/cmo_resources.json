@@ -73,6 +73,18 @@
             "jdk1.8.0_31":"/opt/common/CentOS_6/java/jdk1.8.0_31/bin/java",
             "jre1.7.0_75":"/opt/common/CentOS_6/java/jre1.7.0_75/bin/java"
         },
+        "tabix":
+        {
+            "default": "/opt/common/CentOS_6-dev/htslib/v1.3.2/tabix",
+            "1.3.1": "/opt/common/CentOS_6-dev/htslib/v1.3.1/tabix",
+            "1.3.2": "/opt/common/CentOS_6-dev/htslib/v1.3.2/tabix"
+        },
+        "bgzip":
+        {
+            "default": "/opt/common/CentOS_6-dev/htslib/v1.3.2/bgzip",
+            "1.3.1": "/opt/common/CentOS_6-dev/htslib/v1.3.1/bgzip",
+            "1.3.2": "/opt/common/CentOS_6-dev/htslib/v1.3.2/bgzip"
+        },
         "vcf2maf":
         {
             "default":"/opt/common/CentOS_6-dev/vcf2maf/v1.6.12/",
@@ -143,7 +155,8 @@
         {
             "default":"/opt/common/CentOS_6-dev/R/R-3.2.2/bin/",
             "3.1.2":"/opt/common/CentOS_6/R/R-3.1.2/bin/",
-	    "3.2.2-dev":"/opt/common/CentOS_6-dev/R/R-3.2.2/bin/"
+	    "3.2.2-dev":"/opt/common/CentOS_6-dev/R/R-3.2.2/bin/",
+	    "3.5.0-dev":"/opt/common/CentOS_6-dev/R/R-3.5.0/bin/"
         },
         "qc":
         {
@@ -247,6 +260,16 @@
             "default": "/opt/common/CentOS_6-dev/QoRT/1.1.8/QoRTs.jar",
             "1.1.8": "/opt/common/CentOS_6-dev/QoRT/1.1.8/QoRTs.jar"
         },
+        "majiq":
+        {
+            "default": "/opt/common/CentOS_6-dev/python/python-3.6.4/bin/majiq",
+            "1.1.3a": "/opt/common/CentOS_6-dev/python/python-3.6.4/bin/majiq"
+        },
+        "voila":
+        {
+            "default": "/opt/common/CentOS_6-dev/python/python-3.6.4/bin/voila",
+            "1.1.8": "/opt/common/CentOS_6-dev/python/python-3.6.4/bin/voila"
+        },
 	"suppa":
 	{
 	    "default":"/ifs/work/taylorlab/pensona/checkout/suppa/suppa.py"
@@ -317,7 +340,8 @@
             "facets_snps":"/opt/common/CentOS_6-dev/facets_lib/Homo_sapiens_assembly38.dbsnp138.vcf.gz",
 	    "default":
 	      {
-	      "gtf":"/ifs/res/pwg/data/gencode/gencode.v25.annotation.gtf",
+	      "gtf":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/gencode.v25.annotation.gtf",
+	      "gff3":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/gencode.v25.annotation.gff3",
 	      "star_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/STAR_gencode.v25",
               "kallisto_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/kallisto-0.43.0-index/gencode.v25",
 	      "miso_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/commonshortest",
@@ -329,9 +353,10 @@
             },
 	    "gencode.v25":
 	      {
-	      "gtf":"/ifs/res/pwg/data/gencode/gencode.v25.annotation.gtf",
+	      "gtf":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/gencode.v25.annotation.gtf",
+ 	      "gff3":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/gencode.v25.annotation.gff3",
 	      "star_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/STAR_gencode.v25",
-              "kallisto_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/kallisto-0.43.0-index/gencode.v25",
+        "kallisto_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/kallisto-0.43.0-index/gencode.v25",
 	      "miso_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/commonshortest",
 	      "const_exons":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/gencode.v25.annotation.min_1000.const_exons.gff",
 	      "gene_names":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.v25/gencode.v25.metadata.HGNC.gene_id",
@@ -350,6 +375,7 @@
 	    "default":
 	      {
 	      "gtf":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/gencode.vM12.annotation.gtf",
+	      "gff3":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/gencode.vM12.annotation.gff3",
 	      "star_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/STAR_gencode.vM12",
               "kallisto_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/kallisto-0.43.0-index/gencode.vM12",
 	      "miso_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/commonshortest",
@@ -362,6 +388,7 @@
 	    "gencode.vM12":
 	      {
 	      "gtf":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/gencode.vM12.annotation.gtf",
+	      "gff3":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/gencode.vM12.annotation.gff3",
 	      "star_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/STAR_gencode.vM12",
               "kallisto_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/kallisto-0.43.0-index/gencode.vM12",
 	      "miso_index":"/ifs/work/taylorlab/pensona/MISO_indexes/gencode.vM12/commonshortest",
